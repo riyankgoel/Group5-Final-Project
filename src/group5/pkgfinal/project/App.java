@@ -5,17 +5,20 @@
  */
 package group5.pkgfinal.project;
 
+import javax.swing.UIManager;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+
 /**
  *
  * @author theodore
  */
 public class App {
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        MainFrame mainFrame = new MainFrame();
+        
     }
     
 }
