@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -28,7 +29,7 @@ public class IntroPanel extends JPanel implements ActionListener, KeyListener {
             instructionsButton,
             optionsButton,
             playButton;
-    
+      
     MainMap mainMap;
             
     public IntroPanel() {
@@ -36,7 +37,7 @@ public class IntroPanel extends JPanel implements ActionListener, KeyListener {
         setBackground(Color.white);
         setLayout(null);
         
-        
+            
         //Adds the Buttons 
         GameButtons gameButtons = new GameButtons();
         gameButtons.setBounds(new Rectangle(850,50, 300, 600));
@@ -50,6 +51,7 @@ public class IntroPanel extends JPanel implements ActionListener, KeyListener {
         optionsButton.addActionListener(this);
         playButton.addActionListener(this);
         add(gameButtons);
+        
    
     }
 

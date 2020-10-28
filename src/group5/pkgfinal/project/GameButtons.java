@@ -8,6 +8,7 @@ package group5.pkgfinal.project;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -17,14 +18,22 @@ import javax.swing.JPanel;
  */
 public class GameButtons extends JPanel {
 
+    //Buttons
     JButton aboutButton,
             instructionsButton,
             optionsButton,
             playButton;
-
+    
+    //Image buttons
+    JButton menuImageButton;
+            
+    
+    
     public GameButtons() {
         super();
         setBackground(Color.white);
+        //Images
+        JButton menuImageButton;
 
         //creates About Button
         setLayout(null);
@@ -46,6 +55,15 @@ public class GameButtons extends JPanel {
         playButton = new JButton("Play");
         add(playButton);
         playButton.setBounds(new Rectangle(0, 300, 300, 60));
+        
+        //Creates the Menu Image
+        ImageIcon menuImage = new ImageIcon("images/menu_image1.jpg");//creates the image to be used in a JButton
+        menuImageButton = new JButton();
+        menuImageButton.setIcon(menuImage);// image added after the button is already created
+        add(menuImageButton);
+        menuImageButton.setBounds(new Rectangle(0,- 10, 700, 306));
+        
+     
 
     }
 
