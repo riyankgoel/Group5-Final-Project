@@ -31,6 +31,7 @@ ImageIcon sourceImage1 = new ImageIcon("images/Penn_State_Map.jpg");
 
     }
 
+    //Draws the penn state map
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(myImage1, 0, 0, this);
