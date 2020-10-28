@@ -22,9 +22,9 @@ public class MainMap extends JPanel {
 
     JButton backButton;
 
-ImageIcon sourceImage1 = new ImageIcon("images/Penn_State_Map.jpg");
+    ImageIcon sourceImage1 = new ImageIcon("images/Penn_State_Map.jpg");
     Image myImage1 = sourceImage1.getImage();
-    
+
     public MainMap() {
         backButton = new JButton("click here to go back to the Main Menu");
         add(backButton);

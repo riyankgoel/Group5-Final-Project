@@ -21,9 +21,10 @@ import javax.swing.JProgressBar;
 
 /**
  *
- * @author theodore
+ * Main Controller for the entire program.
+ * Tells code which panel to display
  */
-//Pretty much the mainframe of our last assignments
+//
 public class ControlPanel extends JPanel implements ActionListener, KeyListener {
 
     IntroPanel introPanel;
@@ -35,6 +36,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
 
     MainMap mainMap;
 
+    //constructor
     public ControlPanel() {
         super();
         InitialSetUpForControlPanel();
@@ -42,6 +44,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
 
     }
 
+    //Run this method to go back to the intro screen. 
     public void InitialSetUpForControlPanel() {
         //create the layout and graphic components
         //add listeners
@@ -66,7 +69,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     //Put your class here so they can be used to switch between panels
     public void CreateComponentsThatWillBeSwapped() {
         mainMap = new MainMap();
-        mainMap.backButton.addActionListener(this);
+        mainMap.backButton.addActionListener(this);//adds a back button to return to the main menu
 
     }
 

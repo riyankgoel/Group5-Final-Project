@@ -14,7 +14,8 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author theodore
+ * This class is the Intro Screen to the project.
+ * Includes the Imagge and four buttons to the project (About,Instructions,Options, and Play)
  */
 public class IntroPanel extends JPanel {
 
@@ -43,7 +44,7 @@ public class IntroPanel extends JPanel {
         instructionsButton.setBounds(new Rectangle(810, 130, 300, 60));
 
         //creates options Button
-        optionsButton = new JButton("Instructions");
+        optionsButton = new JButton("Options");
         add(optionsButton);
         optionsButton.setBounds(new Rectangle(810, 230, 300, 60));
 
