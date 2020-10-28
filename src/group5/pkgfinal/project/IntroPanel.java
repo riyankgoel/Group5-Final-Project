@@ -7,84 +7,64 @@ package group5.pkgfinal.project;
 
 import java.awt.Color;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
 
 /**
  *
  * @author theodore
  */
-//Pretty much the mainframe of our last assignments
-public class IntroPanel extends JPanel implements ActionListener, KeyListener {
-    
-    GameButtons gameButtons;
+public class IntroPanel extends JPanel {
 
+    //Buttons
     JButton aboutButton,
             instructionsButton,
             optionsButton,
             playButton;
-      
-    MainMap mainMap;
+    
+    //Image buttons
+    JButton menuImageButton;
             
+    
+    
     public IntroPanel() {
         super();
         setBackground(Color.white);
+        //Images
+        JButton menuImageButton;
+
+        //creates About Button
         setLayout(null);
-        
-            
-        //Adds the Buttons 
-        GameButtons gameButtons = new GameButtons();
-        gameButtons.setBounds(new Rectangle(850,50, 300, 600));
-        this.aboutButton = gameButtons.aboutButton;
-        this.instructionsButton = gameButtons.instructionsButton;
-        this.optionsButton = gameButtons.optionsButton;
-        this.playButton = gameButtons.playButton;
-        
-        aboutButton.addActionListener(this);
-        instructionsButton.addActionListener(this);
-        optionsButton.addActionListener(this);
-        playButton.addActionListener(this);
-        add(gameButtons);
-        
-   
-    }
+        aboutButton = new JButton("About");
+        add(aboutButton);
+        aboutButton.setBounds(new Rectangle(810, 30, 300, 60));
 
-    @Override
-    public void actionPerformed(ActionEvent event) {
-        Object obj = event.getSource();
+        //creates Instructions Button
+        instructionsButton = new JButton("Instructions");
+        add(instructionsButton);
+        instructionsButton.setBounds(new Rectangle(810, 130, 300, 60));
+
+        //creates options Button
+        optionsButton = new JButton("Instructions");
+        add(optionsButton);
+        optionsButton.setBounds(new Rectangle(810, 230, 300, 60));
+
+        //creates the play(Main Map) Button
+        playButton = new JButton("Play");
+        add(playButton);
+        playButton.setBounds(new Rectangle(810, 330, 300, 60));
         
-        //
-        if (obj == playButton){
-            remove(gameButtons);
-            
-            
-            
-            
-        }
+        //Creates the Menu Image
+        ImageIcon menuImage = new ImageIcon("images/menu_image1.jpg");//creates the image to be used in a JButton
+        menuImageButton = new JButton();
+        menuImageButton.setIcon(menuImage);// image added after the button is already created
+        add(menuImageButton);
+        menuImageButton.setBounds(new Rectangle(30, 100, 700, 306));
         
-        
+     
 
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

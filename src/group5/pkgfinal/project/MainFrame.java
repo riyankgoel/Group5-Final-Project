@@ -7,13 +7,13 @@ import javax.swing.*;
 public class MainFrame extends JFrame
 {
 
-    IntroPanel introPanel;
+    ControlPanel introPanel;
 
     public MainFrame()
     {
         super("Penn State Game");
         MacLayoutSetup();
-        introPanel = new IntroPanel();
+        introPanel = new ControlPanel();
         getContentPane().add(introPanel, "Center");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1200, 700);
