@@ -23,17 +23,13 @@ public class IntroPanel extends JPanel {
             instructionsButton,
             optionsButton,
             playButton;
-    
+
     //Image buttons
     JButton menuImageButton;
-            
-    
-    
+
     public IntroPanel() {
         super();
         setBackground(Color.white);
-        //Images
-        JButton menuImageButton;
 
         //creates About Button
         setLayout(null);
@@ -55,15 +51,13 @@ public class IntroPanel extends JPanel {
         playButton = new JButton("Play");
         add(playButton);
         playButton.setBounds(new Rectangle(810, 330, 300, 60));
-        
+
         //Creates the Menu Image
         ImageIcon menuImage = new ImageIcon("images/menu_image1.jpg");//creates the image to be used in a JButton
         menuImageButton = new JButton();
         menuImageButton.setIcon(menuImage);// image added after the button is already created
         add(menuImageButton);
         menuImageButton.setBounds(new Rectangle(30, 100, 700, 306));
-        
-     
 
     }
 

@@ -5,7 +5,10 @@
  */
 package group5.pkgfinal.project;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,53 +25,67 @@ import javax.swing.JProgressBar;
  */
 //Pretty much the mainframe of our last assignments
 public class ControlPanel extends JPanel implements ActionListener, KeyListener {
-    
-    IntroPanel gameButtons;
+
+    IntroPanel introPanel;
 
     JButton aboutButton,
             instructionsButton,
             optionsButton,
             playButton;
-      
+
     MainMap mainMap;
-            
+
     public ControlPanel() {
         super();
+        InitialSetUpForControlPanel();
+        CreateComponentsThatWillBeSwapped();
+
+    }
+
+    public void InitialSetUpForControlPanel() {
+        //create the layout and graphic components
+        //add listeners
         setBackground(Color.white);
-        setLayout(null);
-        
-            
+        BorderLayout bl = new BorderLayout();
+        setLayout(bl);
         //Adds the Buttons 
         IntroPanel gameButtons = new IntroPanel();
-        gameButtons.setBounds(new Rectangle(0,0, 1200, 700));
+        gameButtons.setBounds(new Rectangle(0, 0, 1200, 700));
         this.aboutButton = gameButtons.aboutButton;
         this.instructionsButton = gameButtons.instructionsButton;
         this.optionsButton = gameButtons.optionsButton;
         this.playButton = gameButtons.playButton;
-        
+
         aboutButton.addActionListener(this);
         instructionsButton.addActionListener(this);
         optionsButton.addActionListener(this);
         playButton.addActionListener(this);
         add(gameButtons);
-        
-   
+    }
+
+    public void CreateComponentsThatWillBeSwapped() {
+        mainMap = new MainMap();
+        mainMap.backButton.addActionListener(this);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
         Object obj = event.getSource();
-        
-        //
-        if (obj == playButton){
-            remove(gameButtons);
-            
-            
-            
-            
+
+        //Goes to the Main Map through the play button
+        if (obj == playButton) {
+            removeAll();
+            add(mainMap);
+            validate();
+            repaint();
         }
-        
-        
+        if (obj == mainMap.backButton) {
+            removeAll();
+            InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
+            validate();
+            repaint();
+        }
 
     }
 
