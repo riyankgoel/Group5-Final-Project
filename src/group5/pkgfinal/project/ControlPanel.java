@@ -63,6 +63,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         add(gameButtons);
     }
 
+    //Put your class here so they can be used to switch between panels
     public void CreateComponentsThatWillBeSwapped() {
         mainMap = new MainMap();
         mainMap.backButton.addActionListener(this);

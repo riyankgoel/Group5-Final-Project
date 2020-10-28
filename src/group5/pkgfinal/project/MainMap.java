@@ -21,14 +21,11 @@ import javax.swing.JPanel;
 public class MainMap extends JPanel {
 
     JButton backButton;
+
+ImageIcon sourceImage1 = new ImageIcon("images/Penn_State_Map.jpg");
+    Image myImage1 = sourceImage1.getImage();
     
-    ImageIcon pennMapImage = new ImageIcon("Penn_State_Map.jpg");
-    Image pennStateMapImage = pennMapImage.getImage();
-
     public MainMap() {
-       // super();
-        //setBackground(Color.white);
-
         backButton = new JButton("click here to go back to the Main Menu");
         add(backButton);
 
@@ -36,10 +33,7 @@ public class MainMap extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Font f1 = new Font("Gothic", Font.BOLD, 20);
-        g.setFont(f1);
-        g.setColor(Color.BLUE);
-        g.drawString("This is Panel #1", 50, 100);
+        g.drawImage(myImage1, 0, 0, this);
     }
 
 }
