@@ -19,31 +19,29 @@ import javax.swing.JPanel;
  * University Park Game
  */
 public class UniversityParkGame extends JPanel {
-    
+
     //Main Penn State map Image
     ImageIcon sourceUnivParkImage1 = new ImageIcon("images/University_Park.jpg");
     Image univParkImage = sourceUnivParkImage1.getImage();
-    
+
     //back to the menu button
     JButton backToMap;
-    
-    
-    
+
     //constructor
-    public UniversityParkGame(){
+    public UniversityParkGame() {
         super();
         setBackground(Color.white);
         setLayout(null);
-        
+
         backToMap = new JButton("click here to go back to the Map");
         add(backToMap);
         backToMap.setBounds(new Rectangle(500, 10, 300, 30));
-    
-}
-    
-        public void paintComponent(Graphics g) {
+
+    }
+
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(univParkImage, 0, 0, this);
     }
-    
+
 }
