@@ -22,7 +22,7 @@ import javax.swing.JPanel;
  *
  * @author theodore
  */
-public class MainMap extends JPanel implements KeyListener,ActionListener {
+public class MainMap extends JPanel implements KeyListener, ActionListener {
 
     //back to the menu button
     JButton backButton;
@@ -37,7 +37,7 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
             berksGame,
             scrantonGame,
             fayetteGame;
-    
+
     //Rectangles for intersection. Used for when the player intersects with the campus.
     Rectangle univParkRctngle, wrldCmpRctngle, brksRctngle, scrantonRctngle, fytteRctngle;
 
@@ -45,7 +45,7 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
     JButton player;
     Rectangle playerRctngle;
     int vertical, horizontal;
-     
+
     //Game Classes
     UniversityParkGame universityPark;
 
@@ -58,10 +58,10 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
         CreateGamesThatWillBeSwapped();
 
     }
-    
+
     //The Initial Setup when the player goes to the Main Map
-    public void InitialSetUpForMainMap(){
-                //sets a nul layout to add the buttons 
+    public void InitialSetUpForMainMap() {
+        //sets a nul layout to add the buttons 
         setBackground(Color.white);
         setLayout(null);
 
@@ -70,7 +70,6 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
         add(backButton);
         backButton.setBounds(new Rectangle(500, 10, 300, 30));
 
-
         //Player
         player = new JButton();
         add(player);
@@ -78,14 +77,39 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
 
         //University Park
         univParkGame = new JButton("UniversityPark");
+        univParkGame.setBackground(Color.blue);
         add(univParkGame);
         univParkGame.setBounds(new Rectangle(575, 365, 30, 30));
+
+        //World Campus
+        worldCampGame = new JButton("World Campus");
+        worldCampGame.setBackground(Color.white);
+        add(worldCampGame);
+        worldCampGame.setBounds(new Rectangle(600, 100, 200, 30));
+
+        //Berks Campus
+        berksGame = new JButton("Berks Campus");
+        berksGame.setBackground(Color.pink);
+        add(berksGame);
+        berksGame.setBounds(new Rectangle(935, 475, 30, 30));
+
+        //Scranton Campus
+        scrantonGame = new JButton("Scranton Campus");
+        scrantonGame.setBackground(Color.yellow);
+        add(scrantonGame);
+        scrantonGame.setBounds(new Rectangle(980, 215, 30, 30));
+
+        //Fayette Campus
+        fayetteGame = new JButton("Fayette Campus");
+        fayetteGame.setBackground(Color.red);
+        add(fayetteGame);
+        fayetteGame.setBounds(new Rectangle(217, 580, 30, 30));
 
         setFocusable(true);
         addKeyListener(this);
         requestFocusInWindow();
     }
-    
+
     //Put your Game Class here so they can be used to switch between panels
     public void CreateGamesThatWillBeSwapped() {
         universityPark = new UniversityParkGame();
@@ -106,10 +130,15 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int k = e.getKeyCode();
-        
+
         univParkRctngle = univParkGame.getBounds();
+        wrldCmpRctngle = worldCampGame.getBounds();
+        brksRctngle = berksGame.getBounds();
+        scrantonRctngle = scrantonGame.getBounds();
+        fytteRctngle = fayetteGame.getBounds();
+
         playerRctngle = player.getBounds();
-        
+
         //move left
         if (k == e.VK_LEFT) {
             horizontal -= 30;
@@ -133,17 +162,31 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
             vertical += 30;
             player.setBounds(horizontal, vertical, 70, 100);
         }
-        
+
         //Enters the University Park Game Map.
-        if (playerRctngle.intersects(univParkRctngle)){
+        if (playerRctngle.intersects(univParkRctngle)) {
             removeAll();
             add(universityPark);
             validate();
             repaint();
-            
+        }
+        if (playerRctngle.intersects(wrldCmpRctngle)) {
+            System.out.println("Test World Campus");
+
+        }
+        if (playerRctngle.intersects(brksRctngle)) {
+            System.out.println("Test Berks Campus");
+
+        }
+        if (playerRctngle.intersects(scrantonRctngle)) {
+            System.out.println("Test Scranton Campus");
+
+        }
+        if (playerRctngle.intersects(fytteRctngle)) {
+            System.out.println("Test Fayette Campus");
+
         }
 
-        
     }
 
     @Override
@@ -153,8 +196,8 @@ public class MainMap extends JPanel implements KeyListener,ActionListener {
     @Override
     public void actionPerformed(ActionEvent eventMap) {
         Object objMap = eventMap.getSource();
-        
-            if (objMap == universityPark.backToMap) {
+
+        if (objMap == universityPark.backToMap) {
             removeAll();
             InitialSetUpForMainMap(); //rebuild the Map.
             validate();
