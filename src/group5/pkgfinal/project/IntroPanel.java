@@ -10,12 +10,14 @@ import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
  * This class is the Intro Screen to the project.
- * Includes the Imagge and four buttons to the project (About,Instructions,Options, and Play)
+ * Includes the Image and four buttons to the project (About,Instructions,Options, and Play)
  */
 public class IntroPanel extends JPanel {
 
@@ -27,7 +29,10 @@ public class IntroPanel extends JPanel {
 
     //Image buttons
     JButton menuImageButton;
-
+ 
+    //title label
+    JLabel titleText;
+    
     public IntroPanel() {
         super();
         setBackground(Color.white);
@@ -59,6 +64,11 @@ public class IntroPanel extends JPanel {
         menuImageButton.setIcon(menuImage);// image added after the button is already created
         add(menuImageButton);
         menuImageButton.setBounds(new Rectangle(30, 100, 700, 306));
+        
+        //Label for the Title of the game
+        titleText = new JLabel("IST 240 - Penn State Game");
+        add(titleText);
+        titleText.setBounds(new Rectangle(300, 0, 300, 60));
 
     }
 

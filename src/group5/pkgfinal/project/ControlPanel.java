@@ -52,18 +52,18 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         BorderLayout bl = new BorderLayout();
         setLayout(bl);
         //Adds the Buttons 
-        IntroPanel gameButtons = new IntroPanel();
-        gameButtons.setBounds(new Rectangle(0, 0, 1200, 700));
-        this.aboutButton = gameButtons.aboutButton;
-        this.instructionsButton = gameButtons.instructionsButton;
-        this.optionsButton = gameButtons.optionsButton;
-        this.playButton = gameButtons.playButton;
+        IntroPanel introPanel = new IntroPanel();
+        introPanel.setBounds(new Rectangle(0, 0, 1200, 700));
+        this.aboutButton = introPanel.aboutButton;
+        this.instructionsButton = introPanel.instructionsButton;
+        this.optionsButton = introPanel.optionsButton;
+        this.playButton = introPanel.playButton;
 
         aboutButton.addActionListener(this);
         instructionsButton.addActionListener(this);
         optionsButton.addActionListener(this);
         playButton.addActionListener(this);
-        add(gameButtons);
+        add(introPanel);
     }
 
     //Put your class here so they can be used to switch between panels
