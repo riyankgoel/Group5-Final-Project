@@ -25,7 +25,7 @@ import javax.swing.JProgressBar;
  * Tells code which panel to display
  */
 //
-public class ControlPanel extends JPanel implements ActionListener, KeyListener {
+public class ControlPanel extends JPanel implements ActionListener{
 
     IntroPanel introPanel;
 
@@ -92,20 +92,4 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         }
 
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
