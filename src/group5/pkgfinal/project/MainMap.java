@@ -36,10 +36,11 @@ public class MainMap extends JPanel implements KeyListener, ActionListener {
             worldCampGame,
             berksGame,
             scrantonGame,
-            fayetteGame;
+            fayetteGame,
+            gameOverGame;
 
     //Rectangles for intersection. Used for when the player intersects with the campus.
-    Rectangle univParkRctngle, wrldCmpRctngle, brksRctngle, scrantonRctngle, fytteRctngle;
+    Rectangle univParkRctngle, wrldCmpRctngle, brksRctngle, scrantonRctngle, fytteRctngle, gameOverRctngle;
 
     //adds the player
     JButton player;
@@ -104,6 +105,12 @@ public class MainMap extends JPanel implements KeyListener, ActionListener {
         fayetteGame.setBackground(Color.red);
         add(fayetteGame);
         fayetteGame.setBounds(new Rectangle(217, 580, 30, 30));
+        
+        //Game Over Button
+        gameOverGame = new JButton("Game Over");
+        gameOverGame.setBackground(Color.gray);
+        add(gameOverGame);
+        gameOverGame.setBounds(new Rectangle (1050, 50, 100, 100));
 
         setFocusable(true);
         addKeyListener(this);
@@ -136,6 +143,7 @@ public class MainMap extends JPanel implements KeyListener, ActionListener {
         brksRctngle = berksGame.getBounds();
         scrantonRctngle = scrantonGame.getBounds();
         fytteRctngle = fayetteGame.getBounds();
+        gameOverRctngle = gameOverGame.getBounds();
 
         playerRctngle = player.getBounds();
 
@@ -184,6 +192,10 @@ public class MainMap extends JPanel implements KeyListener, ActionListener {
         }
         if (playerRctngle.intersects(fytteRctngle)) {
             System.out.println("Test Fayette Campus");
+
+        }
+        if (playerRctngle.intersects(gameOverRctngle)) {
+            System.out.println("Test Game Over");
 
         }
 
