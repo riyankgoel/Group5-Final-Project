@@ -14,11 +14,10 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  */
 public class App {
 
-  
     public static void main(String[] args) {
-        
+
         MainFrame mainFrame = new MainFrame();
-        
+
     }
-    
+
 }

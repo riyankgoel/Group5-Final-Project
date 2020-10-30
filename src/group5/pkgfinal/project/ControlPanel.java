@@ -21,8 +21,7 @@ import javax.swing.JProgressBar;
 
 /**
  *
- * Main Controller for the entire program.
- * Tells code which panel to display
+ * Main Controller for the entire program. Tells code which panel to display
  */
 //
 public class ControlPanel extends JPanel implements ActionListener, KeyListener {
@@ -41,6 +40,8 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         super();
         InitialSetUpForControlPanel();
         CreateComponentsThatWillBeSwapped();
+        setFocusable(true);
+        addKeyListener(this);
 
     }
 
@@ -51,19 +52,20 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         setBackground(Color.white);
         BorderLayout bl = new BorderLayout();
         setLayout(bl);
+
         //Adds the Buttons 
-        IntroPanel gameButtons = new IntroPanel();
-        gameButtons.setBounds(new Rectangle(0, 0, 1200, 700));
-        this.aboutButton = gameButtons.aboutButton;
-        this.instructionsButton = gameButtons.instructionsButton;
-        this.optionsButton = gameButtons.optionsButton;
-        this.playButton = gameButtons.playButton;
+        IntroPanel introPanel = new IntroPanel();
+        introPanel.setBounds(new Rectangle(0, 0, 1200, 700));
+        this.aboutButton = introPanel.aboutButton;
+        this.instructionsButton = introPanel.instructionsButton;
+        this.optionsButton = introPanel.optionsButton;
+        this.playButton = introPanel.playButton;
 
         aboutButton.addActionListener(this);
         instructionsButton.addActionListener(this);
         optionsButton.addActionListener(this);
         playButton.addActionListener(this);
-        add(gameButtons);
+        add(introPanel);
     }
 
     //Put your class here so they can be used to switch between panels
@@ -71,6 +73,23 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         mainMap = new MainMap();
         mainMap.backButton.addActionListener(this);//adds a back button to return to the main menu
 
+    }
+
+    public void pickGame() {
+        String campus = mainMap.intersectsWhichCampus();
+        if (campus == "UnivPark") {
+            System.out.println("UnivPark");
+        } else if (campus == "Scranton") {
+            System.out.println("Scranton");
+        } else if (campus == "Berks") {
+            System.out.println("Berks");
+        } else if (campus == "Fayette") {
+            System.out.println("Fayette");
+        } else if (campus == "World") {
+            System.out.println("World");
+        } else {
+            System.out.println("Nothing");
+        }
     }
 
     @Override
@@ -83,6 +102,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             add(mainMap);
             validate();
             repaint();
+
         }
         if (obj == mainMap.backButton) {
             removeAll();
@@ -95,17 +115,36 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void keyPressed(KeyEvent event) {
+        int key = event.getKeyCode();
+
+        if (key == KeyEvent.VK_RIGHT) {
+            mainMap.movePlayerRight();
+            pickGame();
+        }
+
+        if (key == KeyEvent.VK_LEFT) {
+            mainMap.movePlayerLeft();
+            pickGame();
+        }
+
+        if (key == KeyEvent.VK_UP) {
+            mainMap.movePlayerUp();
+            pickGame();
+        }
+
+        if (key == KeyEvent.VK_DOWN) {
+            mainMap.movePlayerDown();
+            pickGame();
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

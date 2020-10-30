@@ -1,16 +1,13 @@
 package group5.pkgfinal.project;
 
-
 import java.awt.*;
 import javax.swing.*;
 
-public class MainFrame extends JFrame
-{
+public class MainFrame extends JFrame {
 
     ControlPanel introPanel;
 
-    public MainFrame()
-    {
+    public MainFrame() {
         super("Penn State Game");
         MacLayoutSetup();
         introPanel = new ControlPanel();
@@ -20,15 +17,12 @@ public class MainFrame extends JFrame
         setVisible(true);
     }
 
-    public void MacLayoutSetup()
-    {
+    public void MacLayoutSetup() {
         // On some MACs it might be necessary to have the statement below 
         //for the background color of the button to appear 
-        try
-        {
+        try {
             UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
