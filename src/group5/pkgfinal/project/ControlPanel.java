@@ -33,7 +33,14 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsButton,
             playButton;
 
+    //adds other panels to access
     MainMap mainMap;
+    UniversityParkGame universityPark;
+    ScrantonGame scranton;
+    FayetteGame fayette;
+    WorldCampusGame worldCampus;
+    BerksGame berks;
+    
 
     //constructor
     public ControlPanel() {
@@ -72,23 +79,49 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     public void CreateComponentsThatWillBeSwapped() {
         mainMap = new MainMap();
         mainMap.backButton.addActionListener(this);//adds a back button to return to the main menu
+        
+        //creates object of each panel for game and adds a back button
+        universityPark = new UniversityParkGame();
+        universityPark.backToMap.addActionListener(this);
+        scranton = new ScrantonGame();
+        scranton.backToMap.addActionListener(this);
+        fayette = new FayetteGame();
+        fayette.backToMap.addActionListener(this);
+        worldCampus = new WorldCampusGame();
+        worldCampus.backToMap.addActionListener(this);
+        berks = new BerksGame();
+        berks.backToMap.addActionListener(this);
 
     }
 
     public void pickGame() {
         String campus = mainMap.intersectsWhichCampus();
         if (campus == "UnivPark") {
-            System.out.println("UnivPark");
+            remove(mainMap);
+            add(universityPark);
+            validate();
+            repaint();
         } else if (campus == "Scranton") {
-            System.out.println("Scranton");
+            remove(mainMap);
+            add(scranton);
+            validate();
+            repaint();
         } else if (campus == "Berks") {
-            System.out.println("Berks");
+            remove(mainMap);
+            add(berks);
+            validate();
+            repaint();
         } else if (campus == "Fayette") {
-            System.out.println("Fayette");
+            remove(mainMap);
+            add(fayette);
+            validate();
+            repaint();
         } else if (campus == "World") {
-            System.out.println("World");
+            remove(mainMap);
+            add(worldCampus);
+            validate();
+            repaint();           
         } else {
-            System.out.println("Nothing");
         }
     }
 
@@ -110,7 +143,38 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
-
+        
+        //All these if statementrs allow each game panel to return back to the main map
+        if (obj == universityPark.backToMap) {
+            remove(universityPark);
+            add(mainMap);//returns and rebuilds the map
+            validate();
+            repaint();
+        }
+        if (obj == scranton.backToMap) {
+            remove(scranton);
+            add(mainMap);//returns and rebuilds the map
+            validate();
+            repaint();
+        }
+        if (obj == fayette.backToMap){
+            remove(fayette);
+            add(mainMap);//returns and rebuilds the map
+            validate();
+            repaint();            
+        }
+        if (obj == worldCampus.backToMap){
+            remove(worldCampus);
+            add(mainMap);//returns and rebuilds the map
+            validate();
+            repaint();  
+        }
+        if (obj == berks.backToMap){
+            remove(berks);
+            add(mainMap);//returns and rebuilds the map
+            validate();
+            repaint();  
+        }
     }
 
     @Override

@@ -70,6 +70,7 @@ public class MainMap extends JPanel implements ActionListener {
         //Player
         player = new JButton();
         add(player);
+        player.setText("Player");
         player.setBounds(new Rectangle(horizontal, vertical, 70, 100));
 
         //University Park
