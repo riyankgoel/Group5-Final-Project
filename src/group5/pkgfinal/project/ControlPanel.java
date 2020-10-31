@@ -137,6 +137,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             repaint();
 
         }
+        //back to the intro panel from the main map
         if (obj == mainMap.backButton) {
             removeAll();
             InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
