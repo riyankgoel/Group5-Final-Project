@@ -108,6 +108,7 @@ public class MainMap extends JPanel implements ActionListener {
         gameOverGame.setBackground(Color.gray);
         add(gameOverGame);
         gameOverGame.setBounds(new Rectangle (1050, 50, 100, 100));
+        gameOverGame.addActionListener(this);       
 
         setFocusable(true);
         requestFocusInWindow();
@@ -202,13 +203,7 @@ public class MainMap extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent eventMap) {
         Object objMap = eventMap.getSource();
-
-        if (objMap == universityPark.backToMap) {
-            removeAll();
-            InitialSetUpForMainMap(); //rebuild the Map.
-            validate();
-            repaint();
-        }
+       
     }
 
 }

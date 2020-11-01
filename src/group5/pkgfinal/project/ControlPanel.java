@@ -40,6 +40,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     FayetteGame fayette;
     WorldCampusGame worldCampus;
     BerksGame berks;
+    GameOver gameOver;
     
 
     //constructor
@@ -79,6 +80,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     public void CreateComponentsThatWillBeSwapped() {
         mainMap = new MainMap();
         mainMap.backButton.addActionListener(this);//adds a back button to return to the main menu
+        mainMap.gameOverGame.addActionListener(this);//adds a game over screen button
         
         //creates object of each panel for game and adds a back button
         universityPark = new UniversityParkGame();
@@ -91,6 +93,10 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         worldCampus.backToMap.addActionListener(this);
         berks = new BerksGame();
         berks.backToMap.addActionListener(this);
+        gameOver = new GameOver();
+        gameOver.backToMainMenu.addActionListener(this);
+        
+        
 
     }
 
@@ -135,7 +141,6 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             add(mainMap);
             validate();
             repaint();
-
         }
         //back to the intro panel from the main map
         if (obj == mainMap.backButton) {
@@ -175,6 +180,18 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             add(mainMap);//returns and rebuilds the map
             validate();
             repaint();  
+        }
+        if (obj == gameOver.backToMainMenu) {
+            removeAll();
+            InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
+            validate();
+            repaint();
+        }
+        if (obj == mainMap.gameOverGame){
+            removeAll();
+            add(gameOver);
+            validate();
+            repaint();            
         }
     }
 
