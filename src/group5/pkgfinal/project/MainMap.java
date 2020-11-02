@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * IST 240 - Deliverable 1
+ * Group 5 Members: Theodore Nguyen, Riyank Goel, Nicholas Marzullo
+ * Professor Choman
  */
 package group5.pkgfinal.project;
 
@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -27,6 +28,8 @@ public class MainMap extends JPanel implements ActionListener {
     //Main Penn State map Image
     ImageIcon sourceImage1 = new ImageIcon("images/Penn_State_Map.jpg");
     Image myImage1 = sourceImage1.getImage();
+    
+    ImageIcon worldCampusImage = new ImageIcon("images/WorldCampus.jpg");
 
     //Game Panels to be added to map
     JButton univParkGame,
@@ -80,10 +83,11 @@ public class MainMap extends JPanel implements ActionListener {
         univParkGame.setBounds(new Rectangle(575, 365, 30, 30));
 
         //World Campus
-        worldCampGame = new JButton("World Campus");
-        worldCampGame.setBackground(Color.white);
+        worldCampGame = new JButton(worldCampusImage);
+        worldCampGame.setText("World Campus");
+        worldCampGame.setHorizontalTextPosition(AbstractButton.CENTER);
         add(worldCampGame);
-        worldCampGame.setBounds(new Rectangle(600, 100, 200, 30));
+        worldCampGame.setBounds(new Rectangle(600, 100, 100, 100));
 
         //Berks Campus
         berksGame = new JButton("Berks Campus");
