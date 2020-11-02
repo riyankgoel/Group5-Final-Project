@@ -32,7 +32,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             instructionsButton,
             optionsButton,
             playButton;
-    
+
     //Menu Options
     Options optionsMenu;
     About aboutMenu;
@@ -46,7 +46,6 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     WorldCampusGame worldCampus;
     BerksGame berks;
     GameOver gameOver;
-    
 
     //constructor
     public ControlPanel() {
@@ -83,21 +82,20 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
 
     //Put your class here so they can be used to switch between panels
     public void CreateComponentsThatWillBeSwapped() {
-        
-        
+
         mainMap = new MainMap();
         mainMap.backButton.addActionListener(this);//adds a back button to return to the main menu
         mainMap.gameOverGame.addActionListener(this);//adds a game over screen button
-       
+
         optionsMenu = new Options();
         optionsMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
-        
+
         aboutMenu = new About();
         aboutMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
-        
+
         instructionsMenu = new Instructions();
         instructionsMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
-        
+
         //creates object of each panel for game and adds a back button
         universityPark = new UniversityParkGame();
         universityPark.backToMap.addActionListener(this);
@@ -111,8 +109,6 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         berks.backToMap.addActionListener(this);
         gameOver = new GameOver();
         gameOver.backToMainMenu.addActionListener(this);
-        
-        
 
     }
 
@@ -142,7 +138,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             remove(mainMap);
             add(worldCampus);
             validate();
-            repaint();           
+            repaint();
         } else {
         }
     }
@@ -152,47 +148,47 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         Object obj = event.getSource();
 
         //Goes to the About Menu
-        if (obj == aboutButton){
+        if (obj == aboutButton) {
             removeAll();
             add(aboutMenu);
             validate();
-            repaint();            
+            repaint();
         }
         //Goes back to the main menu
-        if (obj == aboutMenu.backButton){
+        if (obj == aboutMenu.backButton) {
             removeAll();
             InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
             validate();
-            repaint();         
+            repaint();
         }
-        
-        if (obj == optionsButton){
+
+        if (obj == optionsButton) {
             removeAll();
             add(optionsMenu);
             validate();
-            repaint();            
+            repaint();
         }
         //Goes back to the main menu
-        if (obj == optionsMenu.backButton){
+        if (obj == optionsMenu.backButton) {
             removeAll();
             InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
             validate();
-            repaint();         
+            repaint();
         }
-        if (obj == instructionsButton){
+        if (obj == instructionsButton) {
             removeAll();
             add(instructionsMenu);
             validate();
-            repaint();            
+            repaint();
         }
         //Goes back to the main menu
-        if (obj == instructionsMenu.backButton){
+        if (obj == instructionsMenu.backButton) {
             removeAll();
             InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
             validate();
-            repaint();         
+            repaint();
         }
-        
+
         //Goes to the Main Map through the play button
         if (obj == playButton) {
             removeAll();
@@ -207,7 +203,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
-        
+
         //All these if statementrs allow each game panel to return back to the main map
         if (obj == universityPark.backToMap) {
             remove(universityPark);
@@ -221,23 +217,23 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
-        if (obj == fayette.backToMap){
+        if (obj == fayette.backToMap) {
             remove(fayette);
             add(mainMap);//returns and rebuilds the map
             validate();
-            repaint();            
+            repaint();
         }
-        if (obj == worldCampus.backToMap){
+        if (obj == worldCampus.backToMap) {
             remove(worldCampus);
             add(mainMap);//returns and rebuilds the map
             validate();
-            repaint();  
+            repaint();
         }
-        if (obj == berks.backToMap){
+        if (obj == berks.backToMap) {
             remove(berks);
             add(mainMap);//returns and rebuilds the map
             validate();
-            repaint();  
+            repaint();
         }
         if (obj == gameOver.backToMainMenu) {
             removeAll();
@@ -245,11 +241,11 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
-        if (obj == mainMap.gameOverGame){
+        if (obj == mainMap.gameOverGame) {
             removeAll();
             add(gameOver);
             validate();
-            repaint();            
+            repaint();
         }
     }
 

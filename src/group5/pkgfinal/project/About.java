@@ -20,9 +20,9 @@ import javax.swing.JPanel;
  */
 public class About extends JPanel {
 
-    //Main Penn State map Image
-    ImageIcon sourceBerksImage1 = new ImageIcon("images/Berks.jpg");
-    Image berksImage = sourceBerksImage1.getImage();
+    //Main menu 
+    ImageIcon sourceImage1 = new ImageIcon("images/GameOver.jpg");
+    Image menuImage = sourceImage1.getImage();
 
     //back to the menu button
     JButton backButton;
@@ -41,7 +41,7 @@ public class About extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(berksImage, 0, 0, this);
+        g.drawImage(menuImage, 0, 0, this);
     }
 
 }

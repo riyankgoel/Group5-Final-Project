@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  * @author theodore
  */
 public class MainMap extends JPanel implements ActionListener {
-    
+
     //back to the menu button
     JButton backButton;
 
@@ -102,33 +102,34 @@ public class MainMap extends JPanel implements ActionListener {
         fayetteGame.setBackground(Color.red);
         add(fayetteGame);
         fayetteGame.setBounds(new Rectangle(217, 580, 30, 30));
-        
+
         //Game Over Button
         gameOverGame = new JButton("Game Over");
         gameOverGame.setBackground(Color.gray);
         add(gameOverGame);
-        gameOverGame.setBounds(new Rectangle (1050, 50, 100, 100));
-        gameOverGame.addActionListener(this);       
+        gameOverGame.setBounds(new Rectangle(1050, 50, 100, 100));
+        gameOverGame.addActionListener(this);
 
         setFocusable(true);
         requestFocusInWindow();
     }
-    
+
     public void movePlayerRight() {
         horizontal += 30;
-        player.setBounds(horizontal, vertical, 70, 100);        
+        player.setBounds(horizontal, vertical, 70, 100);
     }
-    
+
     public void movePlayerLeft() {
         horizontal -= 30;
         player.setBounds(horizontal, vertical, 70, 100);
     }
-    
+
     public void movePlayerUp() {
         vertical -= 30;
         player.setBounds(horizontal, vertical, 70, 100);
-        
+
     }
+
     public void movePlayerDown() {
         vertical += 30;
         player.setBounds(horizontal, vertical, 70, 100);
@@ -152,42 +153,42 @@ public class MainMap extends JPanel implements ActionListener {
         }
         return "Nothing";
     }
-    
+
     public boolean ifIntersectsUnivParkGame() {
         univParkRctngle = univParkGame.getBounds();
         playerRctngle = player.getBounds();
-        
+
         return playerRctngle.intersects(univParkRctngle);
-    }      
-    
+    }
+
     public boolean ifIntersectsWorldCampusGame() {
         wrldCmpRctngle = worldCampGame.getBounds();
         playerRctngle = player.getBounds();
-        
+
         return playerRctngle.intersects(wrldCmpRctngle);
     }
-    
+
     public boolean ifIntersectsBerksGame() {
         brksRctngle = berksGame.getBounds();
         playerRctngle = player.getBounds();
-        
+
         return playerRctngle.intersects(brksRctngle);
     }
-    
+
     public boolean ifIntersectsScrantonGame() {
         scrantonRctngle = scrantonGame.getBounds();
         playerRctngle = player.getBounds();
-        
+
         return playerRctngle.intersects(scrantonRctngle);
     }
-    
+
     public boolean ifIntersectsFayetteGame() {
         fytteRctngle = fayetteGame.getBounds();
         playerRctngle = player.getBounds();
-        
+
         return playerRctngle.intersects(fytteRctngle);
     }
-    
+
     //Put your Game Class here so they can be used to switch between panels
     public void CreateGamesThatWillBeSwapped() {
         universityPark = new UniversityParkGame();
@@ -203,7 +204,7 @@ public class MainMap extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent eventMap) {
         Object objMap = eventMap.getSource();
-       
+
     }
 
 }
