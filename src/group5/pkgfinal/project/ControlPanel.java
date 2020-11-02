@@ -32,6 +32,11 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             instructionsButton,
             optionsButton,
             playButton;
+    
+    //Menu Options
+    Options optionsMenu;
+    About aboutMenu;
+    Instructions instructionsMenu;
 
     //adds other panels to access
     MainMap mainMap;
@@ -78,9 +83,20 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
 
     //Put your class here so they can be used to switch between panels
     public void CreateComponentsThatWillBeSwapped() {
+        
+        
         mainMap = new MainMap();
         mainMap.backButton.addActionListener(this);//adds a back button to return to the main menu
         mainMap.gameOverGame.addActionListener(this);//adds a game over screen button
+       
+        optionsMenu = new Options();
+        optionsMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
+        
+        aboutMenu = new About();
+        aboutMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
+        
+        instructionsMenu = new Instructions();
+        instructionsMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
         
         //creates object of each panel for game and adds a back button
         universityPark = new UniversityParkGame();
@@ -135,6 +151,48 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     public void actionPerformed(ActionEvent event) {
         Object obj = event.getSource();
 
+        //Goes to the About Menu
+        if (obj == aboutButton){
+            removeAll();
+            add(aboutMenu);
+            validate();
+            repaint();            
+        }
+        //Goes back to the main menu
+        if (obj == aboutMenu.backButton){
+            removeAll();
+            InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
+            validate();
+            repaint();         
+        }
+        
+        if (obj == optionsButton){
+            removeAll();
+            add(optionsMenu);
+            validate();
+            repaint();            
+        }
+        //Goes back to the main menu
+        if (obj == optionsMenu.backButton){
+            removeAll();
+            InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
+            validate();
+            repaint();         
+        }
+        if (obj == instructionsButton){
+            removeAll();
+            add(instructionsMenu);
+            validate();
+            repaint();            
+        }
+        //Goes back to the main menu
+        if (obj == instructionsMenu.backButton){
+            removeAll();
+            InitialSetUpForControlPanel(); //rebuild the original ControlPanel again
+            validate();
+            repaint();         
+        }
+        
         //Goes to the Main Map through the play button
         if (obj == playButton) {
             removeAll();
