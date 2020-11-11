@@ -6,6 +6,9 @@
 package group5.pkgfinal.project;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -21,6 +24,10 @@ import javax.swing.JTextField;
  */
 public class IntroPanel extends JPanel {
 
+    //Main menu
+    ImageIcon sourceImage1 = new ImageIcon("images/GameOver.jpg");
+    Image menuImage = sourceImage1.getImage();
+    
     //Buttons
     JButton aboutButton,
             instructionsButton,
@@ -67,9 +74,15 @@ public class IntroPanel extends JPanel {
         
         //Label for the Title of the game
         titleText = new JLabel("IST 240 - Penn State Game");
+        titleText.setFont(new Font("Century Gothic", Font.BOLD, 24));
+        titleText.setForeground(Color.white);
         add(titleText);
         titleText.setBounds(new Rectangle(300, 0, 300, 60));
 
+    }
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(menuImage, 0, 0, this);
     }
 
 }
