@@ -89,6 +89,9 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
 
         optionsMenu = new Options();
         optionsMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
+        optionsMenu.lionButton.addActionListener(this);//Allows user to click the button to switch characters
+        optionsMenu.studentButton.addActionListener(this);//Allows user to click the button to switch characters
+        optionsMenu.footballButton.addActionListener(this);//Allows user to click the button to switch characters
 
         aboutMenu = new About();
         aboutMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
@@ -246,6 +249,15 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             add(gameOver);
             validate();
             repaint();
+        }
+        if (obj == optionsMenu.lionButton){
+            mainMap.ChangeToLionIcon();
+        }
+        if (obj == optionsMenu.footballButton){
+            mainMap.ChangeToFootballIcon();
+        }
+        if (obj == optionsMenu.studentButton){
+            mainMap.ChangeToStudentIcon();
         }
     }
 

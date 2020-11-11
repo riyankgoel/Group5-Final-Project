@@ -21,7 +21,14 @@ import javax.swing.JPanel;
  * @author theodore
  */
 public class MainMap extends JPanel implements ActionListener {
-
+    
+    //options class
+    Options options;
+    //images of characters
+    ImageIcon sourceLionImage = new ImageIcon("images/Nittany_Lion.jpg");
+    ImageIcon sourceFootballImage = new ImageIcon("images/football.jpg");
+    ImageIcon sourceStudentImage = new ImageIcon("images/student.jpg");
+    
     //back to the menu button
     JButton backButton;
 
@@ -57,6 +64,7 @@ public class MainMap extends JPanel implements ActionListener {
         super();
         InitialSetUpForMainMap();
         CreateGamesThatWillBeSwapped();
+
     }
 
     //The Initial Setup when the player goes to the Main Map
@@ -71,10 +79,9 @@ public class MainMap extends JPanel implements ActionListener {
         backButton.setBounds(new Rectangle(500, 10, 300, 30));
 
         //Player
-        player = new JButton();
+        player = new JButton(sourceStudentImage);
         add(player);
-        player.setText("Player");
-        player.setBounds(new Rectangle(horizontal, vertical, 70, 100));
+        player.setBounds(new Rectangle(horizontal, vertical, 70, 150));
 
         //University Park
         univParkGame = new JButton("UniversityPark");
@@ -120,23 +127,23 @@ public class MainMap extends JPanel implements ActionListener {
 
     public void movePlayerRight() {
         horizontal += 30;
-        player.setBounds(horizontal, vertical, 70, 100);
+        player.setBounds(horizontal, vertical, 70, 150);
     }
 
     public void movePlayerLeft() {
         horizontal -= 30;
-        player.setBounds(horizontal, vertical, 70, 100);
+        player.setBounds(horizontal, vertical, 70, 150);
     }
 
     public void movePlayerUp() {
         vertical -= 30;
-        player.setBounds(horizontal, vertical, 70, 100);
+        player.setBounds(horizontal, vertical, 70, 150);
 
     }
 
     public void movePlayerDown() {
         vertical += 30;
-        player.setBounds(horizontal, vertical, 70, 100);
+        player.setBounds(horizontal, vertical, 70, 150);
     }
 
     public String intersectsWhichCampus() {
@@ -192,23 +199,51 @@ public class MainMap extends JPanel implements ActionListener {
 
         return playerRctngle.intersects(fytteRctngle);
     }
-
+    
+    //change to Penn State Nittany Lion for Player
+    public void ChangeToLionIcon(){
+        remove(player);
+        player = new JButton(sourceLionImage);
+        add(player);
+        player.setBounds(new Rectangle(horizontal, vertical, 70, 150));
+    }
+    //change to Barkley for Player
+    public void ChangeToFootballIcon(){
+        remove(player);
+        player = new JButton(sourceFootballImage);
+        add(player);
+        player.setBounds(new Rectangle(horizontal, vertical, 70, 150));
+    }
+    
+    //change to Penn State Nittany Lion for Player
+    public void ChangeToStudentIcon(){
+        remove(player);
+        player = new JButton(sourceStudentImage);
+        add(player);
+        player.setBounds(new Rectangle(horizontal, vertical, 70, 150));
+    }
+    
     //Put your Game Class here so they can be used to switch between panels
     public void CreateGamesThatWillBeSwapped() {
         universityPark = new UniversityParkGame();
         universityPark.backToMap.addActionListener(this);//adds a back button to return to the main menu
     }
+    
+
 
     //Draws the penn state map
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(myImage1, 0, 0, this);
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent eventMap) {
-        Object objMap = eventMap.getSource();
+        Object obj = eventMap.getSource();
+        
 
     }
+
 
 }

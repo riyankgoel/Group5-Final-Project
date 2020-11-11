@@ -10,6 +10,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -19,7 +21,7 @@ import javax.swing.JPanel;
  *
  * Berks Game
  */
-public class Options extends JPanel {
+public class Options extends JPanel{
 
     //Main menu
     ImageIcon sourceImage1 = new ImageIcon("images/GameOver.jpg");
@@ -147,5 +149,6 @@ public class Options extends JPanel {
         super.paintComponent(g);
         g.drawImage(menuImage, 0, 0, this);
     }
+
 
 }
