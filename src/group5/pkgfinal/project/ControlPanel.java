@@ -92,6 +92,9 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         optionsMenu.lionButton.addActionListener(this);//Allows user to click the button to switch characters
         optionsMenu.studentButton.addActionListener(this);//Allows user to click the button to switch characters
         optionsMenu.footballButton.addActionListener(this);//Allows user to click the button to switch characters
+        optionsMenu.sportsButton.addActionListener(this);
+        optionsMenu.mathButton.addActionListener(this);
+        optionsMenu.javaButton.addActionListener(this);
 
         aboutMenu = new About();
         aboutMenu.backButton.addActionListener(this);//adds a back button to return to the main menu
@@ -250,16 +253,50 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
-        if (obj == optionsMenu.lionButton){
+        //Change icons in the main map from the options menu. Also changes the color of the text for verificaiton
+        if (obj == optionsMenu.lionButton) {
             mainMap.ChangeToLionIcon();
+            optionsMenu.lionText.setForeground(Color.blue);
+            optionsMenu.footballText.setForeground(Color.orange);
+            optionsMenu.studentText.setForeground(Color.orange);
+            
         }
-        if (obj == optionsMenu.footballButton){
+        if (obj == optionsMenu.footballButton) {
             mainMap.ChangeToFootballIcon();
+            optionsMenu.lionText.setForeground(Color.orange);
+            optionsMenu.footballText.setForeground(Color.blue);
+            optionsMenu.studentText.setForeground(Color.orange);
         }
-        if (obj == optionsMenu.studentButton){
+        if (obj == optionsMenu.studentButton) {
             mainMap.ChangeToStudentIcon();
+            optionsMenu.lionText.setForeground(Color.orange);
+            optionsMenu.footballText.setForeground(Color.orange);
+            optionsMenu.studentText.setForeground(Color.blue);
         }
+        if (obj == optionsMenu.sportsButton) {
+            optionsMenu.PlaySportsGame();
+            optionsMenu.sportsText.setForeground(Color.blue);
+            optionsMenu.javaText.setForeground(Color.orange);
+            optionsMenu.mathText.setForeground(Color.orange);
+            
+        }
+        if (obj == optionsMenu.mathButton) {
+            optionsMenu.PlaySportsGame();
+            optionsMenu.sportsText.setForeground(Color.orange);
+            optionsMenu.javaText.setForeground(Color.orange);
+            optionsMenu.mathText.setForeground(Color.blue);
+            
+        }
+        if (obj == optionsMenu.javaButton) {
+            optionsMenu.PlaySportsGame();
+            optionsMenu.sportsText.setForeground(Color.orange);
+            optionsMenu.javaText.setForeground(Color.blue);
+            optionsMenu.mathText.setForeground(Color.orange);
+            
+        }
+        
     }
+    
 
     @Override
     public void keyTyped(KeyEvent e) {

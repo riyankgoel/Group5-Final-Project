@@ -57,7 +57,11 @@ public class Options extends JPanel{
             sportsText,
             mathText,
             javaText;
-
+    
+    Boolean themeJava,
+            themeMath,
+            themeSports;
+    
     //constructor
     public Options() {
         super();
@@ -144,7 +148,30 @@ public class Options extends JPanel{
         
     }
     
-
+    //enables math games
+    public void PlayMathGame(){
+        Boolean themeMath = true;
+        Boolean themeJava = false;
+        Boolean themeSports = false;
+        
+    }
+    
+        //enables java games
+    public void PlayJavaGame(){
+        Boolean themeMath = false;
+        Boolean themeJava = true;
+        Boolean themeSports = false;
+        
+    }
+    
+    //enables sports games
+    public void PlaySportsGame(){
+        Boolean themeMath = false;
+        Boolean themeJava = false;
+        Boolean themeSports = true;
+        
+    }
+       
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(menuImage, 0, 0, this);
