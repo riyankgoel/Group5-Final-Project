@@ -16,8 +16,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+import javax.swing.Timer;
 
 /**
  *
@@ -47,6 +50,16 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     BerksGame berks;
     GameOver gameOver;
 
+    Boolean themeSports,
+            themeJava,
+            themeMath;
+
+    //Timer
+    Timer tim;
+    int delay = 0;
+    int i = 0;
+    JLabel timeCount = new JLabel("Timer will start after map is entered.");
+
     //constructor
     public ControlPanel() {
         super();
@@ -72,12 +85,23 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         this.instructionsButton = introPanel.instructionsButton;
         this.optionsButton = introPanel.optionsButton;
         this.playButton = introPanel.playButton;
+        AddTimer();
 
         aboutButton.addActionListener(this);
         instructionsButton.addActionListener(this);
         optionsButton.addActionListener(this);
         playButton.addActionListener(this);
         add(introPanel);
+
+        delay = 1000; //milliseconds
+        tim = new Timer(delay, this);
+    }
+    
+    //adds the timer to the panel.
+    public void AddTimer(){
+        add(timeCount);
+        timeCount.setBounds(new Rectangle(10, 600, 200, 30));
+        timeCount.setForeground(Color.orange);
     }
 
     //Put your class here so they can be used to switch between panels
@@ -195,12 +219,15 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             repaint();
         }
 
-        //Goes to the Main Map through the play button
+        //Goes to the Main Map through the play button and starts the timer
         if (obj == playButton) {
             removeAll();
+            AddTimer();//adds timer
             add(mainMap);
             validate();
             repaint();
+            tim.start();//starts timer
+
         }
         //back to the intro panel from the main map
         if (obj == mainMap.backButton) {
@@ -253,13 +280,13 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
-        //Change icons in the main map from the options menu. Also changes the color of the text for verificaiton
+        //Change player icon in the main map from the options menu. Also changes the color of the text for verificaiton
         if (obj == optionsMenu.lionButton) {
             mainMap.ChangeToLionIcon();
             optionsMenu.lionText.setForeground(Color.blue);
             optionsMenu.footballText.setForeground(Color.orange);
             optionsMenu.studentText.setForeground(Color.orange);
-            
+
         }
         if (obj == optionsMenu.footballButton) {
             mainMap.ChangeToFootballIcon();
@@ -273,27 +300,31 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.footballText.setForeground(Color.orange);
             optionsMenu.studentText.setForeground(Color.blue);
         }
+        //Change theme in the options menu.
         if (obj == optionsMenu.sportsButton) {
             optionsMenu.sportsText.setForeground(Color.blue);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.orange);
-            
+
         }
         if (obj == optionsMenu.mathButton) {
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.blue);
-            
+
         }
         if (obj == optionsMenu.javaButton) {
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.blue);
             optionsMenu.mathText.setForeground(Color.orange);
-            
         }
-        
+        //Increments Timer
+        if (obj == tim) {
+            i = i + 1;
+            timeCount.setText("Time: " + i);
+        }
+
     }
-    
 
     @Override
     public void keyTyped(KeyEvent e) {

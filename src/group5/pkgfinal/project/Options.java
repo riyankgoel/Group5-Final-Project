@@ -59,6 +59,10 @@ public class Options extends JPanel{
             mathText,
             javaText;
     
+    String sports,
+            math,
+            java;
+    
     //constructor
     public Options() {
         super();
@@ -94,7 +98,7 @@ public class Options extends JPanel{
         descriptionText.setBounds(new Rectangle(10, 615, 300, 60));
       
         
-        //player and theme texts
+        //player icon options
         lionText = new JLabel("Nittany Lion");
         lionText.setFont(new Font("Century Gothic", Font.BOLD, 42));
         lionText.setForeground(Color.orange);
@@ -111,6 +115,7 @@ public class Options extends JPanel{
         add(studentText);
         studentText.setBounds(new Rectangle(360, 515, 300, 60));
         
+        //theme options
         sportsText = new JLabel("Sports");
         sportsText.setFont(new Font("Century Gothic", Font.BOLD, 42));
         sportsText.setForeground(Color.orange);
