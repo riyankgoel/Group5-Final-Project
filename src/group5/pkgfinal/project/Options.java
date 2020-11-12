@@ -52,6 +52,7 @@ public class Options extends JPanel{
     JLabel playerTitle,
            themeTitle,
             lionText,
+            descriptionText,
             footballText,
             studentText,
             sportsText,
@@ -90,6 +91,12 @@ public class Options extends JPanel{
         themeTitle.setForeground(Color.white);
         add(themeTitle);
         themeTitle.setBounds(new Rectangle(825, 0, 300, 60));
+        descriptionText = new JLabel ("(Click an icon to select a character and a theme)");
+        descriptionText.setFont(new Font("Century Gothic", Font.BOLD, 12));
+        descriptionText.setForeground(Color.white);
+        add(descriptionText);
+        descriptionText.setBounds(new Rectangle(10, 615, 300, 60));
+      
         
         //player and theme texts
         lionText = new JLabel("Nittany Lion");
