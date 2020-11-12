@@ -274,21 +274,18 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.studentText.setForeground(Color.blue);
         }
         if (obj == optionsMenu.sportsButton) {
-            optionsMenu.PlaySportsGame();
             optionsMenu.sportsText.setForeground(Color.blue);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.orange);
             
         }
         if (obj == optionsMenu.mathButton) {
-            optionsMenu.PlaySportsGame();
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.blue);
             
         }
         if (obj == optionsMenu.javaButton) {
-            optionsMenu.PlaySportsGame();
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.blue);
             optionsMenu.mathText.setForeground(Color.orange);

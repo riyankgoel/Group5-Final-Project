@@ -25,6 +25,8 @@ import javax.swing.JTextField;
  * Berks Game
  */
 public class BerksGame extends JPanel implements ActionListener {
+    
+    Options optionsMenu;
 
     //Main Penn State map Image
     ImageIcon sourceBerksImage1 = new ImageIcon("images/Berks.jpg");
@@ -44,16 +46,12 @@ public class BerksGame extends JPanel implements ActionListener {
         setBackground(Color.white);
         setLayout(null);
 
-        
-                //Test
-        MathQuestions();
-
         backToMap = new JButton("click here to go back to the Map");
         add(backToMap);
         backToMap.setBounds(new Rectangle(500, 10, 300, 30));
         
-
-        
+        MathQuestions();
+          
 
     }
     
@@ -64,8 +62,6 @@ public class BerksGame extends JPanel implements ActionListener {
     }
     
     public void MathQuestions(){
-        
-
         
         displayQuestion = new JLabel("What is 9 + 10 ?");
         displayQuestion.setOpaque(true);
@@ -98,10 +94,9 @@ public class BerksGame extends JPanel implements ActionListener {
         answer1.addActionListener(this);
         answer2.addActionListener(this);
         answer3.addActionListener(this);
-        // set the button with a default selection
-        answer1.setSelected(true);
         
     }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -110,18 +105,24 @@ public class BerksGame extends JPanel implements ActionListener {
 
         if (obj == answer1)
         {
-            displayAnswer.setForeground(Color.pink);
-            displayAnswer.setText("WRONG !!");
+            displayAnswer.setForeground(Color.green);
+            displayAnswer.setText("CORRECT !!");
+            remove(answer2);
+            remove(answer3);
         }
         if (obj == answer2)
         {
-            displayAnswer.setForeground(Color.blue);
-            displayAnswer.setText("CORRECT !!");
+            displayAnswer.setForeground(Color.red);
+            displayAnswer.setText("INCORRECT !!");
+            remove(answer1);
+            remove(answer3);
         }
         if (obj == answer3)
         {
             displayAnswer.setForeground(Color.red);
-            displayAnswer.setText("WRONG !!");
+            displayAnswer.setText("INCORRECT !!");
+            remove(answer1);
+            remove(answer2);
         }
         
     }
