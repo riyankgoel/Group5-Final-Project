@@ -53,12 +53,17 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     Boolean themeSports,
             themeJava,
             themeMath;
+    
+    int scoreBerks;
 
     //Timer
     Timer tim;
     int delay = 0;
     int i = 0;
     JLabel timeCount = new JLabel("Timer will start after map is entered.");
+    JLabel showScore = new JLabel("Score");
+    int score = 0;
+   
 
     //constructor
     public ControlPanel() {
@@ -77,7 +82,8 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         setBackground(Color.white);
         BorderLayout bl = new BorderLayout();
         setLayout(bl);
-
+        
+        
         //Adds the Buttons 
         IntroPanel introPanel = new IntroPanel();
         introPanel.setBounds(new Rectangle(0, 0, 1200, 700));
@@ -85,7 +91,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         this.instructionsButton = introPanel.instructionsButton;
         this.optionsButton = introPanel.optionsButton;
         this.playButton = introPanel.playButton;
-        AddTimer();
+        AddTimerAndGame();
 
         aboutButton.addActionListener(this);
         instructionsButton.addActionListener(this);
@@ -96,12 +102,15 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         delay = 1000; //milliseconds
         tim = new Timer(delay, this);
     }
-    
+
     //adds the timer to the panel.
-    public void AddTimer(){
+    public void AddTimerAndGame() {
         add(timeCount);
         timeCount.setBounds(new Rectangle(10, 600, 200, 30));
         timeCount.setForeground(Color.orange);
+        add(showScore);
+        showScore.setBounds(new Rectangle(10, 620, 200, 30));
+        showScore.setForeground(Color.orange);
     }
 
     //Put your class here so they can be used to switch between panels
@@ -222,7 +231,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         //Goes to the Main Map through the play button and starts the timer
         if (obj == playButton) {
             removeAll();
-            AddTimer();//adds timer
+            AddTimerAndGame();//adds timer
             add(mainMap);
             validate();
             repaint();
@@ -322,6 +331,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         if (obj == tim) {
             i = i + 1;
             timeCount.setText("Time: " + i);
+            showScore.setText("Score: " + score);
         }
 
     }

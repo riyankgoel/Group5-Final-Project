@@ -26,7 +26,6 @@ import javax.swing.JTextField;
  */
 public class BerksGame extends JPanel implements ActionListener {
 
-    ControlPanel cp;
 
     //Main Penn State map Image
     ImageIcon sourceBerksImage1 = new ImageIcon("images/Berks.jpg");
@@ -39,25 +38,37 @@ public class BerksGame extends JPanel implements ActionListener {
 
     JRadioButton answer1, answer2, answer3, answer4;
     JTextField displayAnswer;
-
-
+    JLabel funFact;
+    
     //constructor
     public BerksGame() {
         super();
         setBackground(Color.white);
         setLayout(null);
+        
 
-
+        funFact = new JLabel("Fun Fact! This Campus was established in 1958");
+        add(funFact);
+        funFact.setBounds(new Rectangle(10,10, 400, 30));
+        funFact.setFont(new Font("Century Gothic", Font.BOLD, 16));
+        funFact.setForeground(Color.white);
+        
         backToMap = new JButton("click here to go back to the Map");
         add(backToMap);
         backToMap.setBounds(new Rectangle(500, 10, 300, 30));
+        
+
+        
+        
+        MathQuestions();
 
     }
-
+    
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(berksImage, 0, 0, this);
     }
+   
 
     //This method adds math related questions.
     public void MathQuestions() {
@@ -66,7 +77,8 @@ public class BerksGame extends JPanel implements ActionListener {
         displayQuestion.setOpaque(true);
         displayQuestion.setBackground(Color.gray);
         displayQuestion.setForeground(Color.black);
-        displayQuestion.setBounds(new Rectangle(0, 0, 300, 60));
+        displayQuestion.setBounds(new Rectangle(500, 50, 300, 50));
+        add(displayQuestion);
 
         displayAnswer = new JTextField();
 
@@ -81,8 +93,6 @@ public class BerksGame extends JPanel implements ActionListener {
         group.add(answer3);
         group.add(answer4);
 
-        add(displayQuestion);
-        displayQuestion.setBounds(new Rectangle(500, 50, 300, 50));
         add(answer1);
         answer1.setBounds(new Rectangle(500, 150, 300, 50));
         add(answer2);
@@ -184,7 +194,9 @@ public class BerksGame extends JPanel implements ActionListener {
         answer4.addActionListener(this);
 
     }
-
+    
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -196,6 +208,7 @@ public class BerksGame extends JPanel implements ActionListener {
             remove(answer2);
             remove(answer3);
             remove(answer4);
+            
         }
         if (obj == answer2) {
             displayAnswer.setForeground(Color.red);
