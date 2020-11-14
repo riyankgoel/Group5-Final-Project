@@ -40,6 +40,9 @@ public class BerksGame extends JPanel implements ActionListener {
     JTextField displayAnswer;
     JLabel funFact;
     
+    
+    XML_240 x2;
+
     //constructor
     public BerksGame() {
         super();
