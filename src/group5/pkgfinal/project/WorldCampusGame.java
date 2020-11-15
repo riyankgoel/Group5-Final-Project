@@ -8,6 +8,7 @@ package group5.pkgfinal.project;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
@@ -26,6 +27,8 @@ public class WorldCampusGame extends JPanel {
 
     //back to the menu button
     JButton backToMap;
+    
+    JButton button1, button2, button3, button4, button5, button6, button7, button8,button9;
 
     //constructor
     public WorldCampusGame() {
@@ -37,6 +40,12 @@ public class WorldCampusGame extends JPanel {
         add(backToMap);
         backToMap.setBounds(new Rectangle(500, 10, 300, 30));
 
+    }
+    
+    public void TicTacToe(){
+        
+        
+        
     }
 
     public void paintComponent(Graphics g) {

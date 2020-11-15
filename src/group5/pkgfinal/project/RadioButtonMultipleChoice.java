@@ -12,26 +12,31 @@ import javax.swing.JRadioButton;
  * @author theodore
  */
 public class RadioButtonMultipleChoice {
-    
+
     String isCorrect;
-    
     JRadioButton button;
-    
-    public RadioButtonMultipleChoice(String isTrue, String question){
-        
+
+    public RadioButtonMultipleChoice(Boolean isTrue, String question) {
         button = new JRadioButton(question);
-        
-        if (isTrue == "true"){
-        isCorrect = "correct";
+
+        if (isTrue == true) {
+            isCorrect = "correct";
+        } else {
+            isCorrect = "incorrect";
         }
-        else
-        {
+    }
+
+    public void changeIsCorrect(Boolean isTrue) {       
+        if (isTrue == true) {
+            isCorrect = "correct";
+        } else {
             isCorrect = "incorrect";
         }
         
-        
     }
     
-    
-    
+    public void changeButtonText(String string) {
+        button.setText(string);
+    }
 }
+

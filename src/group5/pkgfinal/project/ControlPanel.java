@@ -70,7 +70,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     public ControlPanel() {
         super();
         InitialSetUpForControlPanel();
-        CreateComponentsThatWillBeSwapped();
+        createComponentsThatWillBeSwapped();
         setFocusable(true);
         addKeyListener(this);
 
@@ -115,7 +115,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     }
 
     //Put your class here so they can be used to switch between panels
-    public void CreateComponentsThatWillBeSwapped() {
+    public void createComponentsThatWillBeSwapped() {
 
         mainMap = new MainMap();
         mainMap.backButton.addActionListener(this);//adds a back button to return to the main menu
@@ -168,9 +168,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             repaint();
         } else if (campus == "Berks") {
             remove(mainMap);
-            //berks = new BerksGame();
             add(berks);
-            //berks.createQuestions(optionsMenu.currentTheme);
             validate();
             repaint();
         } else if (campus == "Fayette") {
@@ -340,6 +338,8 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.blue);
+            //sets all the classes to the theme by loading the proper xml file to the classes after the theme is selected.
+            berks.createQuestions("Math");
 
         }
         if (obj == optionsMenu.javaButton) {

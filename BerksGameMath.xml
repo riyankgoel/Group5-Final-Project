@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.7.0_65" class="java.beans.XMLDecoder">
 <string>What is 9 + 10 ?</string>
-<string>false</string>
+<boolean>false</boolean>
 <string>64</string>
-<string>true</string>
+<boolean>true</boolean>
 <string>19</string>
-<string>false</string>
+<boolean>false</boolean>
 <string>21</string>
-<string>false</string>
+<boolean>false</boolean>
 <string>43</string>
 </java>
