@@ -100,7 +100,7 @@ public class BerksGame extends JPanel implements ActionListener {
 
         //Adds all the components to the map
         add(displayQuestion);
-        displayQuestion.setBounds(new Rectangle(500, 50, 300, 50));
+        displayQuestion.setBounds(new Rectangle(400, 50, 500, 50));
         add(answer1);
         answer1.setBounds(new Rectangle(500, 150, 300, 50));
         add(answer2);
