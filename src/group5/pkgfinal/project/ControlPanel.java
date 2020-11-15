@@ -40,6 +40,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     Options optionsMenu;
     About aboutMenu;
     Instructions instructionsMenu;
+    GameScore gameScore;
 
     //adds other panels to access
     MainMap mainMap;
@@ -55,7 +56,8 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             themeJava,
             themeMath;
     
-    int scoreBerks;
+    int totalScore;
+
 
     //Timer
     Timer tim;
@@ -63,12 +65,11 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     int i = 0;
     JLabel timeCount = new JLabel("Timer will start after map is entered.");
     JLabel showScore = new JLabel("Score");
-    int totalScore = 0;
-   
 
     //constructor
     public ControlPanel() {
         super();
+        gameScore = new GameScore();//keeps track of the games played
         InitialSetUpForControlPanel();
         createComponentsThatWillBeSwapped();
         setFocusable(true);
@@ -83,8 +84,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         setBackground(Color.white);
         BorderLayout bl = new BorderLayout();
         setLayout(bl);
-        
-        
+
         //Adds the Buttons 
         IntroPanel introPanel = new IntroPanel();
         introPanel.setBounds(new Rectangle(0, 0, 1200, 700));
@@ -145,7 +145,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         fayette.backToMap.addActionListener(this);
         worldCampus = new WorldCampusGame();
         worldCampus.backToMap.addActionListener(this);
-        berks = new BerksGame(totalScore);
+        berks = new BerksGame(gameScore);
         berks.backToMap.addActionListener(this);
         montAlto = new MontAltoGame();
         montAlto.backToMap.addActionListener(this);
@@ -171,6 +171,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             add(berks);
             validate();
             repaint();
+
         } else if (campus == "Fayette") {
             remove(mainMap);
             add(fayette);
@@ -181,13 +182,12 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             add(worldCampus);
             validate();
             repaint();
-        } else if (campus == "Mont Alto"){
+        } else if (campus == "Mont Alto") {
             remove(mainMap);
             add(montAlto);
             validate();
             repaint();
-        }
-        else {
+        } else {
         }
     }
 
@@ -286,7 +286,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
-        if (obj == montAlto.backToMap){
+        if (obj == montAlto.backToMap) {
             remove(montAlto);
             add(mainMap);//returns and rebuilds the map
             validate();
@@ -298,8 +298,12 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             validate();
             repaint();
         }
+        //if the user chooses to end the game
         if (obj == mainMap.gameOverGame) {
             removeAll();
+            tim.stop();
+            add(timeCount);
+            add(showScore);
             add(gameOver);
             validate();
             repaint();
@@ -330,7 +334,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.sportsText.setForeground(Color.blue);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.orange);
-            
+
             //sets all the classes to the Sports theme by loading the proper xml file to the classes after the theme is selected.
             berks.createQuestions("Sports");
 
@@ -341,7 +345,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.blue);
-            
+
             //sets all the classes to the Math theme by loading the proper xml file to the classes after the theme is selected.
             berks.createQuestions("Math");
 
@@ -351,7 +355,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.blue);
             optionsMenu.mathText.setForeground(Color.orange);
-            
+
             //sets all the classes to the Java theme by loading the proper xml file to the classes after the theme is selected.
             berks.createQuestions("Java");
         }

@@ -22,8 +22,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * Berks Game
- * Multiple Choice Game
+ * Berks Game Multiple Choice Game
  */
 public class BerksGame extends JPanel implements ActionListener {
 
@@ -41,26 +40,24 @@ public class BerksGame extends JPanel implements ActionListener {
     JLabel funFact;
 
     RadioButtonMultipleChoice multipleChoice1, multipleChoice2, multipleChoice3, multipleChoice4;
-    
+
     Boolean scored;
 
     XML_240 berksXML;
     String xmlFile, theme;
-    
-    int gameScore;
+
+    GameScore gameScore;
 
     //constructor
-    public BerksGame(int score) {
+    public BerksGame(GameScore gameScore) {
         super();
         //sets the theme to blank and if it was scored yet to false
         theme = "";
         scored = false;
-        gameScore = score;
+        this.gameScore = gameScore;
         berksXML = new XML_240();// creates the 240 class that reads and writes XML
         setBackground(Color.white);
         setLayout(null);
-        
-        
 
         //Adds a fact about the campus to the panel
         funFact = new JLabel("Fun Fact! This Campus was established in 1958");
@@ -180,6 +177,11 @@ public class BerksGame extends JPanel implements ActionListener {
         Object obj = e.getSource();
 
         if (obj == answer1 && scored == false) {
+            if (multipleChoice1.isTrue == true) {
+                gameScore.increaseScore();
+                System.out.println(gameScore.score);
+            }
+            System.out.println(multipleChoice1.isTrue);
             displayAnswer.setText(multipleChoice1.isCorrect);
             remove(answer2);
             remove(answer3);
@@ -188,25 +190,42 @@ public class BerksGame extends JPanel implements ActionListener {
 
         }
         if (obj == answer2 && scored == false) {
+            if (multipleChoice2.isTrue == true) {
+                gameScore.increaseScore();
+                System.out.println(gameScore.score);
+            }
             displayAnswer.setText(multipleChoice2.isCorrect);
             remove(answer1);
             remove(answer3);
             remove(answer4);
             scored = true;
+
         }
         if (obj == answer3 && scored == false) {
+            if (multipleChoice3.isTrue == true) {
+                gameScore.increaseScore();
+                
+            }
             displayAnswer.setText(multipleChoice3.isCorrect);
             remove(answer1);
             remove(answer2);
             remove(answer4);
             scored = true;
+            System.out.println(gameScore.score);
+
         }
         if (obj == answer4 && scored == false) {
+            if (multipleChoice4.isTrue == true) {
+                gameScore.increaseScore();
+                
+            }
+
             displayAnswer.setText(multipleChoice4.isCorrect);
             remove(answer1);
             remove(answer2);
             remove(answer3);
             scored = true;
+            System.out.println(gameScore.score);
 
         }
     }

@@ -17,22 +17,27 @@ public class RadioButtonMultipleChoice {
 
     String isCorrect;
     JRadioButton button;
-
+    Boolean isTrue;
+    
     public RadioButtonMultipleChoice(Boolean isTrue, String question) {
         button = new JRadioButton(question);
 
         if (isTrue == true) {
             isCorrect = "correct";
+            isTrue = true;
         } else {
             isCorrect = "incorrect";
+            isTrue = false;
         }
     }
 
-    public void changeIsCorrect(Boolean isTrue) {       
-        if (isTrue == true) {
+    public void changeIsCorrect(Boolean inputIsTrue) {       
+        if (inputIsTrue == true) {
             isCorrect = "correct";
+            isTrue = true;
         } else {
             isCorrect = "incorrect";
+            isTrue = false;
         }
         
     }

@@ -28,7 +28,6 @@ public class WorldCampusGame extends JPanel {
     //back to the menu button
     JButton backToMap;
     
-    JButton button1, button2, button3, button4, button5, button6, button7, button8,button9;
 
     //constructor
     public WorldCampusGame() {
@@ -42,11 +41,6 @@ public class WorldCampusGame extends JPanel {
 
     }
     
-    public void TicTacToe(){
-        
-        
-        
-    }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
