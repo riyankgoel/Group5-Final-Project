@@ -44,10 +44,11 @@ public class MainMap extends JPanel implements ActionListener {
             berksGame,
             scrantonGame,
             fayetteGame,
+            montAltoGame,
             gameOverGame;
 
     //Rectangles for intersection. Used for when the player intersects with the campus.
-    Rectangle univParkRctngle, wrldCmpRctngle, brksRctngle, scrantonRctngle, fytteRctngle, gameOverRctngle;
+    Rectangle univParkRctngle, wrldCmpRctngle, brksRctngle, scrantonRctngle, fytteRctngle,montAltoRctngle, gameOverRctngle;
 
     //adds the player
     JButton player;
@@ -113,6 +114,13 @@ public class MainMap extends JPanel implements ActionListener {
         fayetteGame.setBackground(Color.red);
         add(fayetteGame);
         fayetteGame.setBounds(new Rectangle(217, 580, 30, 30));
+        
+        //Mont Alto Campus
+        montAltoGame = new JButton("Mont Alto");
+        montAltoGame.setBackground(Color.orange);
+        add(montAltoGame);
+        montAltoGame.setBounds(new Rectangle(632, 605, 30, 30));
+
 
         //Game Over Button
         gameOverGame = new JButton("Game Over");
@@ -120,6 +128,7 @@ public class MainMap extends JPanel implements ActionListener {
         add(gameOverGame);
         gameOverGame.setBounds(new Rectangle(1050, 50, 100, 100));
         gameOverGame.addActionListener(this);
+        
 
         setFocusable(true);
         requestFocusInWindow();
@@ -162,6 +171,9 @@ public class MainMap extends JPanel implements ActionListener {
         if (ifIntersectsFayetteGame()) {
             return "Fayette";
         }
+        if (ifIntersectsMontAltoGame()) {
+            return "Mont Alto";
+        }
         return "Nothing";
     }
 
@@ -198,6 +210,13 @@ public class MainMap extends JPanel implements ActionListener {
         playerRctngle = player.getBounds();
 
         return playerRctngle.intersects(fytteRctngle);
+    }
+    
+    public boolean ifIntersectsMontAltoGame() {
+        montAltoRctngle = montAltoGame.getBounds();
+        playerRctngle = player.getBounds();
+
+        return playerRctngle.intersects(montAltoRctngle);
     }
     
     //change to Penn State Nittany Lion for Player

@@ -48,6 +48,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     FayetteGame fayette;
     WorldCampusGame worldCampus;
     BerksGame berks;
+    MontAltoGame montAlto;
     GameOver gameOver;
 
     Boolean themeSports,
@@ -146,6 +147,8 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         worldCampus.backToMap.addActionListener(this);
         berks = new BerksGame();
         berks.backToMap.addActionListener(this);
+        montAlto = new MontAltoGame();
+        montAlto.backToMap.addActionListener(this);
         gameOver = new GameOver();
         gameOver.backToMainMenu.addActionListener(this);
 
@@ -180,7 +183,13 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             add(worldCampus);
             validate();
             repaint();
-        } else {
+        } else if (campus == "Mont Alto"){
+            remove(mainMap);
+            add(montAlto);
+            validate();
+            repaint();
+        }
+        else {
         }
     }
 
@@ -275,6 +284,12 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         }
         if (obj == berks.backToMap) {
             remove(berks);
+            add(mainMap);//returns and rebuilds the map
+            validate();
+            repaint();
+        }
+        if (obj == montAlto.backToMap){
+            remove(montAlto);
             add(mainMap);//returns and rebuilds the map
             validate();
             repaint();
