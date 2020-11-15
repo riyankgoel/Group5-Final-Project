@@ -15,6 +15,7 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1200, 700);
         setVisible(true);
+        setResizable(false);
     }
 
     public void MacLayoutSetup() {

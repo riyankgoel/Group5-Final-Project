@@ -168,9 +168,9 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             repaint();
         } else if (campus == "Berks") {
             remove(mainMap);
-            berks = new BerksGame();
+            //berks = new BerksGame();
             add(berks);
-            berks.createQuestions(optionsMenu.currentTheme);
+            //berks.createQuestions(optionsMenu.currentTheme);
             validate();
             repaint();
         } else if (campus == "Fayette") {
