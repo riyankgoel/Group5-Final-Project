@@ -38,6 +38,7 @@ public class BerksGame extends JPanel implements ActionListener {
     JRadioButton answer1, answer2, answer3, answer4;
     JTextField displayAnswer;
     JLabel funFact;
+    JLabel berksScore;
 
     RadioButtonMultipleChoice multipleChoice1, multipleChoice2, multipleChoice3, multipleChoice4;
 
@@ -49,11 +50,12 @@ public class BerksGame extends JPanel implements ActionListener {
     GameScore gameScore;
 
     //constructor
-    public BerksGame(GameScore gameScore) {
+    public BerksGame(GameScore gameScore,JLabel score) {
         super();
         //sets the theme to blank and if it was scored yet to false
         theme = "";
         scored = false;
+        berksScore = score;
         this.gameScore = gameScore;
         berksXML = new XML_240();// creates the 240 class that reads and writes XML
         setBackground(Color.white);
@@ -179,8 +181,8 @@ public class BerksGame extends JPanel implements ActionListener {
         if (obj == answer1 && scored == false) {
             if (multipleChoice1.isTrue == true) {
                 gameScore.increaseScore();
-                System.out.println(gameScore.score);
             }
+            berksScore.setText("Score: " + gameScore.score);
             System.out.println(multipleChoice1.isTrue);
             displayAnswer.setText(multipleChoice1.isCorrect);
             remove(answer2);
@@ -192,8 +194,9 @@ public class BerksGame extends JPanel implements ActionListener {
         if (obj == answer2 && scored == false) {
             if (multipleChoice2.isTrue == true) {
                 gameScore.increaseScore();
-                System.out.println(gameScore.score);
             }
+            //updates the score based off the answer
+            berksScore.setText("Score: " + gameScore.score);
             displayAnswer.setText(multipleChoice2.isCorrect);
             remove(answer1);
             remove(answer3);
@@ -204,28 +207,27 @@ public class BerksGame extends JPanel implements ActionListener {
         if (obj == answer3 && scored == false) {
             if (multipleChoice3.isTrue == true) {
                 gameScore.increaseScore();
-                
+
             }
+            berksScore.setText("Score: " + gameScore.score);
             displayAnswer.setText(multipleChoice3.isCorrect);
             remove(answer1);
             remove(answer2);
             remove(answer4);
             scored = true;
-            System.out.println(gameScore.score);
 
         }
         if (obj == answer4 && scored == false) {
             if (multipleChoice4.isTrue == true) {
                 gameScore.increaseScore();
-                
-            }
 
+            }
+            berksScore.setText("Score: " + gameScore.score);
             displayAnswer.setText(multipleChoice4.isCorrect);
             remove(answer1);
             remove(answer2);
             remove(answer3);
             scored = true;
-            System.out.println(gameScore.score);
 
         }
     }

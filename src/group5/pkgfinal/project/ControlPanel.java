@@ -56,8 +56,6 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             themeJava,
             themeMath;
     
-    int totalScore;
-
 
     //Timer
     Timer tim;
@@ -145,7 +143,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         fayette.backToMap.addActionListener(this);
         worldCampus = new WorldCampusGame();
         worldCampus.backToMap.addActionListener(this);
-        berks = new BerksGame(gameScore);
+        berks = new BerksGame(gameScore,showScore);
         berks.backToMap.addActionListener(this);
         montAlto = new MontAltoGame();
         montAlto.backToMap.addActionListener(this);
@@ -363,7 +361,6 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         if (obj == tim) {
             i = i + 1;
             timeCount.setText("Time: " + i);
-            showScore.setText("Score: " + totalScore);
         }
 
     }
