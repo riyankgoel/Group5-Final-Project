@@ -23,6 +23,7 @@ import javax.swing.JTextField;
 /**
  *
  * Berks Game
+ * Multiple Choice Game
  */
 public class BerksGame extends JPanel implements ActionListener {
 
@@ -45,28 +46,35 @@ public class BerksGame extends JPanel implements ActionListener {
 
     XML_240 berksXML;
     String xmlFile, theme;
+    
+    int gameScore;
 
     //constructor
-    public BerksGame() {
+    public BerksGame(int score) {
         super();
+        //sets the theme to blank and if it was scored yet to false
         theme = "";
         scored = false;
-
+        gameScore = score;
         berksXML = new XML_240();// creates the 240 class that reads and writes XML
-
         setBackground(Color.white);
         setLayout(null);
+        
+        
 
+        //Adds a fact about the campus to the panel
         funFact = new JLabel("Fun Fact! This Campus was established in 1958");
         add(funFact);
         funFact.setBounds(new Rectangle(10, 10, 400, 30));
         funFact.setFont(new Font("Century Gothic", Font.BOLD, 16));
         funFact.setForeground(Color.white);
-
+        //adds a back button to the game
         backToMap = new JButton("click here to go back to the Map");
         add(backToMap);
         backToMap.setBounds(new Rectangle(500, 10, 300, 30));
 
+        //Adds the components for the multiple choice game. THe question and answers are all blank.
+        //The Radio buttons and question label are filled through an XML document which is selected in the options menu.
         displayQuestion = new JLabel("");
         displayQuestion.setOpaque(true);
         displayQuestion.setBackground(Color.gray);
@@ -91,6 +99,7 @@ public class BerksGame extends JPanel implements ActionListener {
         group.add(answer3);
         group.add(answer4);
 
+        //Adds all the components to the map
         add(displayQuestion);
         displayQuestion.setBounds(new Rectangle(500, 50, 300, 50));
         add(answer1);
@@ -112,11 +121,13 @@ public class BerksGame extends JPanel implements ActionListener {
         createQuestions("");
     }
 
+    //Sets background image
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(berksImage, 0, 0, this);
     }
 
+    //Fills in the missing text for the questions and answers in the constructor.
     public void createQuestions(String inputTheme) {
         theme = inputTheme;
         if (theme == "Math") {

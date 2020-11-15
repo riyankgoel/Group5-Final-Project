@@ -63,7 +63,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     int i = 0;
     JLabel timeCount = new JLabel("Timer will start after map is entered.");
     JLabel showScore = new JLabel("Score");
-    int score = 0;
+    int totalScore = 0;
    
 
     //constructor
@@ -92,7 +92,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         this.instructionsButton = introPanel.instructionsButton;
         this.optionsButton = introPanel.optionsButton;
         this.playButton = introPanel.playButton;
-        AddTimerAndGame();
+        addTimerAndGame();
 
         aboutButton.addActionListener(this);
         instructionsButton.addActionListener(this);
@@ -105,7 +105,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     }
 
     //adds the timer to the panel.
-    public void AddTimerAndGame() {
+    public void addTimerAndGame() {
         add(timeCount);
         timeCount.setBounds(new Rectangle(10, 600, 200, 30));
         timeCount.setForeground(Color.orange);
@@ -145,7 +145,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         fayette.backToMap.addActionListener(this);
         worldCampus = new WorldCampusGame();
         worldCampus.backToMap.addActionListener(this);
-        berks = new BerksGame();
+        berks = new BerksGame(totalScore);
         berks.backToMap.addActionListener(this);
         montAlto = new MontAltoGame();
         montAlto.backToMap.addActionListener(this);
@@ -240,7 +240,7 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         //Goes to the Main Map through the play button and starts the timer
         if (obj == playButton) {
             removeAll();
-            AddTimerAndGame();//adds timer
+            addTimerAndGame();//adds timer
             add(mainMap);
             validate();
             repaint();
@@ -330,6 +330,9 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.sportsText.setForeground(Color.blue);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.orange);
+            
+            //sets all the classes to the Sports theme by loading the proper xml file to the classes after the theme is selected.
+            berks.createQuestions("Sports");
 
         }
         if (obj == optionsMenu.mathButton) {
@@ -338,7 +341,8 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.blue);
-            //sets all the classes to the theme by loading the proper xml file to the classes after the theme is selected.
+            
+            //sets all the classes to the Math theme by loading the proper xml file to the classes after the theme is selected.
             berks.createQuestions("Math");
 
         }
@@ -347,12 +351,15 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.blue);
             optionsMenu.mathText.setForeground(Color.orange);
+            
+            //sets all the classes to the Java theme by loading the proper xml file to the classes after the theme is selected.
+            berks.createQuestions("Java");
         }
         //Increments Timer
         if (obj == tim) {
             i = i + 1;
             timeCount.setText("Time: " + i);
-            showScore.setText("Score: " + score);
+            showScore.setText("Score: " + totalScore);
         }
 
     }

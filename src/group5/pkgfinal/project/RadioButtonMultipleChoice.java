@@ -10,6 +10,8 @@ import javax.swing.JRadioButton;
 /**
  *
  * @author theodore
+ * Use this class for multiple choice type games. 
+ * Please refer to the "BermsGame" class to understand how this code works.
  */
 public class RadioButtonMultipleChoice {
 

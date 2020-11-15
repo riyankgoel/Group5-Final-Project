@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_65" class="java.beans.XMLDecoder">
+<string>The ____ operator is used to construct an object from a class.</string>
+<boolean>true</boolean>
+<string>new</string>
+<boolean>false</boolean>
+<string>add</string>
+<boolean>false</boolean>
+<string>create</string>
+<boolean>false</boolean>
+<string>construct</string>
+</java>
