@@ -165,7 +165,9 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
             repaint();
         } else if (campus == "Berks") {
             remove(mainMap);
+            berks = new BerksGame();
             add(berks);
+            berks.createQuestions(optionsMenu.currentTheme);
             validate();
             repaint();
         } else if (campus == "Fayette") {
@@ -311,18 +313,22 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         }
         //Change theme in the options menu.
         if (obj == optionsMenu.sportsButton) {
+            optionsMenu.currentTheme = "Sports";
             optionsMenu.sportsText.setForeground(Color.blue);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.orange);
 
         }
         if (obj == optionsMenu.mathButton) {
+            optionsMenu.currentTheme = "Math";
+            System.out.println(optionsMenu.currentTheme);
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.orange);
             optionsMenu.mathText.setForeground(Color.blue);
 
         }
         if (obj == optionsMenu.javaButton) {
+            optionsMenu.currentTheme = "Java";
             optionsMenu.sportsText.setForeground(Color.orange);
             optionsMenu.javaText.setForeground(Color.blue);
             optionsMenu.mathText.setForeground(Color.orange);

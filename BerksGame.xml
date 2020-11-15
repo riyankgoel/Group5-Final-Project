@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.7.0_65" class="java.beans.XMLDecoder">
     <question>
-        <theme>Math</theme>
+        <string>Math</string>
         <question_string>What is 9 + 10?</question_string>
         <choice1>
             <choice_string>19</choice_string>

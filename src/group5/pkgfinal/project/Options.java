@@ -63,6 +63,8 @@ public class Options extends JPanel{
             math,
             java;
     
+    String currentTheme;
+    
     //constructor
     public Options() {
         super();
