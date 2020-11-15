@@ -180,7 +180,7 @@ public class BerksGame extends JPanel implements ActionListener {
 
         if (obj == answer1 && scored == false) {
             if (multipleChoice1.isTrue == true) {
-                gameScore.increaseScore();
+                gameScore.increaseScore(1);//increases the score by 1 point. change the number in the paranthases by the actual score.
             }
             berksScore.setText("Score: " + gameScore.score);
             System.out.println(multipleChoice1.isTrue);
@@ -189,11 +189,12 @@ public class BerksGame extends JPanel implements ActionListener {
             remove(answer3);
             remove(answer4);
             scored = true;
+            gameScore.increaseGameComplete();//add this to your code so that the game knows when to add the "world campus" to the map.
 
         }
         if (obj == answer2 && scored == false) {
             if (multipleChoice2.isTrue == true) {
-                gameScore.increaseScore();
+                gameScore.increaseScore(1);
             }
             //updates the score based off the answer
             berksScore.setText("Score: " + gameScore.score);
@@ -202,11 +203,12 @@ public class BerksGame extends JPanel implements ActionListener {
             remove(answer3);
             remove(answer4);
             scored = true;
+            gameScore.increaseGameComplete();//add this to your code so that the game knows when to add the "world campus" to the map.
 
         }
         if (obj == answer3 && scored == false) {
             if (multipleChoice3.isTrue == true) {
-                gameScore.increaseScore();
+                gameScore.increaseScore(1);
 
             }
             berksScore.setText("Score: " + gameScore.score);
@@ -215,11 +217,12 @@ public class BerksGame extends JPanel implements ActionListener {
             remove(answer2);
             remove(answer4);
             scored = true;
+            gameScore.increaseGameComplete();//add this to your code so that the game knows when to add the "world campus" to the map.
 
         }
         if (obj == answer4 && scored == false) {
             if (multipleChoice4.isTrue == true) {
-                gameScore.increaseScore();
+                gameScore.increaseScore(1);
 
             }
             berksScore.setText("Score: " + gameScore.score);
@@ -228,6 +231,7 @@ public class BerksGame extends JPanel implements ActionListener {
             remove(answer2);
             remove(answer3);
             scored = true;
+            gameScore.increaseGameComplete();//add this to your code so that the game knows when to add the "world campus" to the map.
 
         }
     }

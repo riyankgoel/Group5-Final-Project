@@ -55,7 +55,6 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
     Boolean themeSports,
             themeJava,
             themeMath;
-    
 
     //Timer
     Timer tim;
@@ -72,6 +71,16 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         createComponentsThatWillBeSwapped();
         setFocusable(true);
         addKeyListener(this);
+
+    }
+
+    public void resetGame() {
+        gameScore = new GameScore();//keeps track of the games played
+        InitialSetUpForControlPanel();
+        createComponentsThatWillBeSwapped();
+        setFocusable(true);
+        addKeyListener(this);
+        i=0;
 
     }
 
@@ -143,12 +152,13 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         fayette.backToMap.addActionListener(this);
         worldCampus = new WorldCampusGame();
         worldCampus.backToMap.addActionListener(this);
-        berks = new BerksGame(gameScore,showScore);
+        berks = new BerksGame(gameScore, showScore);
         berks.backToMap.addActionListener(this);
         montAlto = new MontAltoGame();
         montAlto.backToMap.addActionListener(this);
         gameOver = new GameOver();
         gameOver.backToMainMenu.addActionListener(this);
+        
 
     }
 
@@ -298,13 +308,17 @@ public class ControlPanel extends JPanel implements ActionListener, KeyListener 
         }
         //if the user chooses to end the game
         if (obj == mainMap.gameOverGame) {
+            resetGame();
             removeAll();
             tim.stop();
-            add(timeCount);
-            add(showScore);
+           // add(timeCount);
+            //add(showScore);
             add(gameOver);
+            showScore.setText("Score: ");
+            timeCount.setText("Time: ");
             validate();
             repaint();
+
         }
         //Change player icon in the main map from the options menu. Also changes the color of the text for verificaiton
         if (obj == optionsMenu.lionButton) {

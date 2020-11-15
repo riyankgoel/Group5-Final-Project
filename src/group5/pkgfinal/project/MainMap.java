@@ -54,6 +54,8 @@ public class MainMap extends JPanel implements ActionListener {
     JButton player;
     Rectangle playerRctngle;
     int vertical, horizontal;
+    
+    GameScore gameScore;
 
     //Game Classes
     UniversityParkGame universityPark;
@@ -91,6 +93,7 @@ public class MainMap extends JPanel implements ActionListener {
         univParkGame.setBounds(new Rectangle(575, 365, 30, 30));
 
         //World Campus
+ 
         worldCampGame = new JButton(worldCampusImage);
         worldCampGame.setText("World Campus");
         worldCampGame.setHorizontalTextPosition(AbstractButton.CENTER);
