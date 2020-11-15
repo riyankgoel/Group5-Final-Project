@@ -68,7 +68,7 @@ public class BerksGame extends JPanel implements ActionListener {
         g.drawImage(berksImage, 0, 0, this);
     }
 
-    //This method adds math related questions.
+    //IGNORE THIS METHOD IT WILL BE REMOVED !!
     public void MathQuestions() {
 
         displayQuestion = new JLabel("What is 9 + 10 ?");
@@ -109,7 +109,7 @@ public class BerksGame extends JPanel implements ActionListener {
 
     }
 
-    //This method adds math related questions.
+    //IGNORE THIS METHOD IT WILL BE REMOVED !!
     public void SportsQuestions() {
 
         displayQuestion = new JLabel("What is Saquon Barkley's Vertical Jump");
@@ -160,6 +160,7 @@ public class BerksGame extends JPanel implements ActionListener {
 
     }
 
+    //Creates the questions for the game and also imports the XML for the themes and questions.
     public void createQuestions(String curTheme) {
 
         if (curTheme == "Math") {
